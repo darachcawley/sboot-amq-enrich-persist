@@ -4,7 +4,7 @@
     xmlns:cxf="http://camel.apache.org/schema/cxf"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd       http://camel.apache.org/schema/cxf  http://camel.apache.org/schema/cxf/camel-cxf.xsd">
     <cxf:cxfEndpoint
-        address="http://{{soap.host}}:{{soap.port}}/ws/customerService"
+        address="http://{{soap.host}}:{{soap.port}}{{soap.endpoint}}"
         id="customerWebService" loggingFeatureEnabled="true"
         serviceClass="org.fuse.usecase.service.CustomerWS" wsdlURL="classpath:wsdl/customerService.wsdl"/>
     <bean class="org.fuse.usecase.AccountAggregator" id="reconcileData"/>
@@ -16,6 +16,5 @@
     -->
     <bean
         class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider" id="jsonProvider"/>
-    <camelContext id="_camelContext1" xmlns="http://camel.apache.org/schema/spring">
-    </camelContext>
+    <camelContext id="_camelContext1" xmlns="http://camel.apache.org/schema/spring"/>
 </beans>
